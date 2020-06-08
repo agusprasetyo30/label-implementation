@@ -34,13 +34,18 @@
             <div class="float-right mb-2">
                <a href="tambah_data.php" class="btn btn-success">Tambah Data</a>
             </div>
-            <table class="table table-bordered table-hover table-striped text-center ">
+            <table class="table table-bordered table-hover table-striped text-center" >
                <thead>
                   <tr>
                      <th>No</th>
                      <th>Nama</th>
                      <th>Alamat</th>
                      <th>Status</th>
+                     <th>Tanggal Mulai</th>
+                     <th>Tanggal Akhir</th>
+                     <th>Tanggal Ingat 1</th>
+                     <th>Tanggal Ingat 2</th>
+                     <th>Aksi</th>
                   </tr>
                </thead>
                <tbody>
@@ -69,7 +74,13 @@
                            //    echo "<span class='label label-danger'>". $dataMahasiswa['status'] ."</span>";
                            // }
                         ?>
-
+                     </td>
+                     <td><?= $dataMahasiswa['tgl_mulai'] ? $dataMahasiswa['tgl_mulai'] : '-' ?></td>
+                     <td><?= $dataMahasiswa['tgl_akhir'] ? $dataMahasiswa['tgl_akhir'] : '-' ?></td>
+                     <td><?= $dataMahasiswa['tgl_ingat_1'] ? $dataMahasiswa['tgl_ingat_1'] : '-' ?></td>
+                     <td><?= $dataMahasiswa['tgl_ingat_2'] ? $dataMahasiswa['tgl_ingat_2'] : '-' ?></td>
+                     <td>
+                        <a href="ubah_data.php?id=<?= $dataMahasiswa['id'] ?>" class="btn btn-warning">Ubah Tanggal</a>
                      </td>
                   </tr>
                   

@@ -53,6 +53,11 @@
                            <option value="TIDAK AKTIF">TIDAK AKTIF</option>
                         </select>
                      </div>
+                     <!-- Tanggal -->
+                     <div class="form-group">
+                        <label for="status">Tanggal Sekarang</label>
+                        <input type="text" name="tgl_sekarang" class="form-control" value="<?= date('Y-m-d', strtotime("now")) ?>" readonly>
+                     </div>
                      
                      <input type="submit" name="simpan" value="Simpan" class="btn btn-success float-right">
 
@@ -68,12 +73,16 @@
    
       // Untuk menyimpan data di database
       if (isset($_POST['simpan'])) {
+
          // Memasukan inputan ke dalam variabel untuk di proses
          $nama = $_POST['nama'];
          $alamat = $_POST['alamat'];
          $status = $_POST['status'];
+         $tgl_sekarang = $_POST['tgl_sekarang'];
 
-         $query = "INSERT INTO mahasiswa VALUES (NULL, '$nama', '$alamat', '$status') ";
+         $query = "INSERT INTO mahasiswa (id, nama, alamat, status, tgl_mulai) VALUES 
+            (NULL, '$nama', '$alamat', '$status', '$tgl_sekarang') ";
+         var_dump($query);
          // Mengeksekusi query diatas
          $data = mysqli_query($koneksi, $query);
 
